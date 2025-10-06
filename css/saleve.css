@@ -1,0 +1,199 @@
+    .flash-sale-section {
+      border: 2px solid #ffa500;
+      border-radius: 10px;
+      padding: 10px;
+      overflow: hidden;
+
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+                
+                -webkit-backdrop-filter: blur(20px);
+                backdrop-filter: blur(10px);
+                
+                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                border-radius: 20px;
+
+                color: black;
+      position: relative;
+    }
+
+    .flash-sale-header {
+      background-color: #ffa500;
+      color: #fbedd0;
+      padding: 8px 16px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      animation: flash 1s infinite alternate;
+      border-radius: 10px;
+    }
+
+    @keyframes flash {
+      from { background-color: #ffa500; }
+      to   { background-color: #ff7300; }
+    }
+
+    .products {
+      display: flex;
+      justify-content: space-around;
+      gap: 16px;
+      padding: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 30%;
+      min-width: 200px;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      background: #fbedd0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .product-name {
+      margin: 10px 0;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .price {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: #888;
+      margin-right: 8px;
+    }
+
+    .sale-price {
+      color: red;
+      font-weight: bold;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: yellow;
+      color: red;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .discount-badge::before {
+      content: "⚡";
+    }
+
+    .buy-button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #ab1e1e;
+      color: #fbedd0;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+    }
+
+    .buy-button:hover {
+      background-color: darkred;
+      color: #fbedd0;
+    }
+
+    .countdown {
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .countdown {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.time-box {
+  width: 40px;
+  height: 40px;
+  background-color: #fbedd0;
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+.hidden {
+  display: none !important;
+}
+.countdown {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
+.time-box {
+  width: 40px;
+  height: 40px;
+  background-color: #fbedd0;
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.countdown .colon {
+  font-size: 25px;
+  color: black;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* RESPONSIVE CHO MÀN NHỎ */
+@media screen and (max-width: 600px) {
+  .time-box {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+.countdown{
+  gap: 0px;
+}
+  .countdown .colon {
+    font-size: 18px;
+  }
+
+  .flash-sale-header {
+    font-size: 30px;
+    padding: 6px 10px;
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+}

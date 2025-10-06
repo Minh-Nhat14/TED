@@ -1,0 +1,109 @@
+.quantity {
+  flex: 1;
+  min-width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffffb0;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0; /* bỏ padding để nút sát input */
+}
+
+.quantity input[type="number"] {
+  width: 40px;
+  text-align: center;
+  border: none;
+  padding: 6px;
+  background-color: transparent;
+  box-sizing: border-box;
+  -moz-appearance: textfield;
+  margin: 0px !important;
+  min-width: 10px;
+}
+
+/* Ẩn mũi tên tăng giảm mặc định */
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.btn-qty {
+  width: 30px;
+  height: 100%;
+  border: none !important;
+  background-color: transparent; /* làm trong suốt */
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 10px;
+  color: #333; /* hoặc màu bạn muốn, ví dụ #000 hay #555 */
+}
+.btn-decrease{
+    margin-left: 10px;
+}
+.btn-increase{
+    margin-right: 10px;
+}
+.btn-qty:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* nhẹ nhàng khi hover */
+}
+
+
+@media (max-width: 615px) {
+  .quantity{
+  margin-top: 10px;
+}
+.product-total{
+  margin-top: 10px;
+}
+}
+
+@media (max-width: 500px) {
+  .quantity{
+  flex: 1 1 100% !important;
+}
+.product-total{
+  margin-top: 10px;
+}
+}
+
+@media (max-width: 450px) {
+.quantity input[type="number"] {
+    max-width: 50px;
+    align-items: left;
+}
+.product-total{
+    text-align: right !important;
+    width: 100%;
+}
+.product-price{
+    flex: 1 1 40%;
+    text-align: right;
+    /* padding: 4px 0;
+    text-align: right; */
+}
+
+.product-info{
+  flex: 1 1 40%;
+}
+
+}
+
+
+
+@media (max-width: 400px) {
+
+.product-price{
+    flex: 1 1 100%;
+    text-align: left;
+    /* padding: 4px 0;
+    text-align: right; */
+}
+
+/* .product-info{
+  flex: 1 1 40%;
+} */
+
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Check-in Khách Mời</title>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      padding: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    #reader {
+      width: 300px;
+      margin: auto;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .success {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+    .loading {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h2>QUÉT MÃ KHÁCH MỜI</h2>
+  <div id="reader"></div>
+  <div id="result" class="loading">Đang chờ quét...</div>
+
+  <script>
+    const resultDiv = document.getElementById('result');
+    const apiURL = "https://script.google.com/macros/s/AKfycbzIrbVb2-iC3Ws8tW9qvVWr1ElS6LCiO6Llo_J_-Av4uVfAOub8Kp4D_elpuAB_uJk/exec";
+    let lastScanned = "";
+
+    function showMessage(text, type) {
+      resultDiv.innerText = text;
+      resultDiv.className = type;
+    }
+
+    function onScanSuccess(decodedText, decodedResult) {
+      if (decodedText === lastScanned) return; // Ngăn quét lặp
+
+      lastScanned = decodedText;
+      showMessage("🔍 Đang kiểm tra: " + decodedText, "loading");
+
+      fetch(apiURL + "?code=" + encodeURIComponent(decodedText))
+        .then(res => res.text())
+        .then(text => {
+          if (text.trim() === "SUCCESS") {
+            showMessage("✅ Check-in thành công!", "success");
+          } else {
+            showMessage("❌ Mã không hợp lệ!", "error");
+          }
+
+          setTimeout(() => {
+            showMessage("Đang chờ quét...", "loading");
+            lastScanned = "";
+          }, 3000); // Reset sau 3s
+        })
+        .catch(err => {
+          showMessage("⚠️ Lỗi kết nối!", "error");
+          lastScanned = "";
+        });
+    }
+
+    Html5Qrcode.getCameras().then(devices => {
+      if (devices && devices.length) {
+        const cameraId = devices[0].id;
+        const html5QrCode = new Html5Qrcode("reader");
+        html5QrCode.start(cameraId, { fps: 10, qrbox: 250 }, onScanSuccess);
+      } else {
+        showMessage("❌ Không tìm thấy camera!", "error");
+      }
+    }).catch(err => {
+      showMessage("⚠️ Không thể truy cập camera!", "error");
+    });
+  </script>
+</body>
+</html>

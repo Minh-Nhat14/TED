@@ -1,0 +1,187 @@
+.container-coutdown {
+ 
+  margin: auto;
+}
+
+.hero-image {
+  width: 200px;
+  margin-bottom: 30px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 2.5em;
+  flex-wrap: wrap;
+}
+
+.countdown-merch div, .countdown-ticket div {
+background: linear-gradient(135deg, rgb(255 255 255 / 59%), rgb(255 204 109 / 58%));
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+
+  border-radius: 20px;
+  color: #333;
+  padding: 2px 15px;
+  font-size: 35px;
+  text-align: center;
+
+}                 
+
+.col-coutdown p {
+  font-size: 15px;
+  margin-top: 5px;
+  color: #333;
+}                             
+
+#message-merch, #message-ticket {
+  margin-top: 30px;
+  font-size: 1.6em;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .countdown {
+    font-size: 2em;
+    gap: 8px;
+  }
+
+  .countdown div {
+    padding: 10px 15px;
+    flex: 1 1 80px;
+  }
+
+  .hero-image {
+    width: 150px;
+  }
+
+  #message-merch, #message-ticket {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown {
+    font-size: 1.5em;
+    gap: 3px;
+  }
+
+  .countdown div {
+    padding: 8px 10px;
+    flex: 1 1 70px;
+  }
+
+  .hero-image {
+    width: 120px;
+  }
+
+  #message-merch, #message-ticket {
+    font-size: 1em;
+  }
+}
+.buy {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 30px;
+    flex-direction: row;
+}
+
+.col-coutdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  flex: 1 1 250px;
+}
+
+.countdown-ticket,
+.countdown-merch {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 2.5em;
+}
+
+  .buy-btn {
+      display: block;
+      margin: 20px auto 20px;
+      padding: 10px 30px;
+      background: linear-gradient(140deg, #ab1e1e47, #ab1e1e29);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(10px);
+      box-shadow: 2px 4px 2px 0 rgba(0, 0, 0, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 32px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #6a1a1a;
+      cursor: pointer;
+      transition: 0.3s ease;
+            text-decoration: none; /* Bỏ gạch chân */
+        /* Dùng màu chữ giống phần tử cha */
+      cursor: pointer; 
+    }
+
+    .buy-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 4px 4px 12px rgba(0,0,0,0.3);
+      color: #5f1515b6;
+    }
+
+@media (max-width: 950px) {
+  .buy {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col-coutdown {
+    max-width: 100%;
+  }
+
+  .countdown-ticket,
+  .countdown-merch {
+    font-size: 2em;
+  }
+}
+
+.countdown-ticket,
+.countdown-merch {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap; /* Ngăn các ô xuống dòng */
+  gap: 15px;
+  font-size: 2.5em;
+  flex: 1;
+  overflow-x: auto; /* Nếu chật quá sẽ cuộn ngang */
+}
+@media (max-width: 480px) {
+
+
+.countdown-merch div, .countdown-ticket div {
+  padding: 2px 10px;
+  font-size: 25px;
+}   
+.countdown-merch div p, .countdown-ticket div p {
+  font-size: 15px;
+}  
+  #message-merch, #message-ticket {
+    font-size: 1.3em;
+  }
+}
+@media (max-width: 390px) {
+
+
+.countdown-merch div, .countdown-ticket div {
+  padding: 2px 9px;
+  font-size: 20px;
+}   
+.countdown-merch div p, .countdown-ticket div p {
+  font-size: 10px;
+}  
+  #message-merch, #message-ticket {
+    font-size: 1.3em;
+  }
+}
